@@ -8,10 +8,8 @@ import pathlib
 def preprocess_image(image):
     """
     Preprocess the image to improve OCR results
-
     Args:
         image: Image loaded with OpenCV
-
     Returns:
         Preprocessed image
     """
@@ -24,17 +22,14 @@ def preprocess_image(image):
     # Optional: noise removal
     kernel = numpy.ones((1, 1), numpy.uint8)
     img_processed = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-
     return img_processed
 
 
 def extract_text(image_path):
     """
     Extract text from an image file
-
     Args:
         image_path: Path to the image file
-
     Returns:
         Extracted text as string
     """
@@ -45,7 +40,6 @@ def extract_text(image_path):
 
     # Load image with OpenCV
     img = cv2.imread(str(image_path_obj))
-
     if img is None:
         raise ValueError(f"Could not load image: {image_path}")
 
@@ -57,5 +51,4 @@ def extract_text(image_path):
 
     # Extract text
     text = pytesseract.image_to_string(img_pil)
-
     return text

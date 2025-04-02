@@ -26,7 +26,6 @@ def parse_arguments():
 def main():
     """Main function"""
     args = parse_arguments()
-
     image_path = args.image
     scale_factor = args.scale
     contrast_factor = args.contrast
@@ -78,10 +77,8 @@ def main():
     # Try OCR on preprocessed images
     print("\n=== Tesseract on grayscale image ===")
     subprocess.run(["tesseract", gray_path, "stdout"])
-
     print("\n=== Tesseract on threshold image ===")
     subprocess.run(["tesseract", thresh_path, "stdout"])
-
     print("\n=== Tesseract on adaptive threshold image ===")
     subprocess.run(["tesseract", adaptive_path, "stdout"])
 
@@ -96,7 +93,6 @@ def main():
     enhanced = enhancer.enhance(contrast_factor)  # Increase contrast
     enhanced_path = "enhanced_image.jpg"
     enhanced.save(enhanced_path)
-
     print("\n=== Tesseract on PIL enhanced image ===")
     subprocess.run(["tesseract", enhanced_path, "stdout"])
 

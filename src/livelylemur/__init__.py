@@ -1,11 +1,12 @@
 # Import extract_text lazily to avoid immediate dependency errors
+from .cli import main as main  # Re-export main explicitly
+
+
 def extract_text(image_path):
     """
     Extract text from an image file
-
     Args:
         image_path: Path to the image file
-
     Returns:
         Extracted text as string
     """
@@ -23,7 +24,3 @@ def extract_text(image_path):
                 "Or use the fallback mode by importing from livelylemur.fallback"
             ) from e
         raise
-
-
-# Expose main function from cli module
-from .cli import main

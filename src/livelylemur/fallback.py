@@ -9,10 +9,8 @@ def extract_text(image_path):
     """
     Extract text from an image file with enhanced processing
     optimized for small product packaging images
-
     Args:
         image_path: Path to the image file
-
     Returns:
         Extracted text as string
     """
@@ -23,7 +21,6 @@ def extract_text(image_path):
 
     # Read image with OpenCV
     img = cv2.imread(str(image_path_obj))
-
     if img is None:
         # Try opening with PIL as fallback
         try:
@@ -72,5 +69,4 @@ def extract_text(image_path):
 
     # Return the longest result, which likely has the most content
     best_result = max(results, key=lambda x: len(x.strip()))
-
     return best_result
